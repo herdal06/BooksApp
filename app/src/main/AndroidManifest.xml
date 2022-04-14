@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BooksApp">
         <activity
+            android:name=".view.BooksActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
