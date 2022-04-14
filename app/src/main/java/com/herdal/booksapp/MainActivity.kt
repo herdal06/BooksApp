@@ -37,5 +37,8 @@ class MainActivity : AppCompatActivity() {
         categoryList.add(c5)
         categoryList.add(c6)
 
+        categoryAdapter = CategoryAdapter(this,categoryList)
+
+        recyclerViewCategories.adapter = categoryAdapter
     }
 }
