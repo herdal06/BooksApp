@@ -20,7 +20,9 @@ class BooksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books)
 
-        toolbarBooks.title = "Books"
+        val category = intent.getSerializableExtra("category") as Category
+
+        toolbarBooks.title = "Books : ${category.name}"
         setSupportActionBar(toolbarBooks)
 
         recyclerViewBooks.setHasFixedSize(true)

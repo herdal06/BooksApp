@@ -1,6 +1,7 @@
 package com.herdal.booksapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Category
+import com.herdal.booksapp.view.BooksActivity
 
 class CategoryAdapter(private val context: Context, private val categoryList: List<Category>) : RecyclerView.Adapter<CategoryAdapter.CardViewHolder>(){
     inner class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -31,6 +33,9 @@ class CategoryAdapter(private val context: Context, private val categoryList: Li
         holder.textViewCategoryName.text = category.name
         holder.card_view_category_name.setOnClickListener { // when we click category
             // intent
+            val intent = Intent(context,BooksActivity::class.java)
+            intent.putExtra("category",category)
+            context.startActivity(intent)
         }
     }
 
