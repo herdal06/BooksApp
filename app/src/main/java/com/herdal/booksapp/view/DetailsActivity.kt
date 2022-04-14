@@ -14,11 +14,12 @@ class DetailsActivity : AppCompatActivity() {
 
         val book = intent.getSerializableExtra("book") as Book
 
-        textViewBookName.text = book.name
-        textViewBookReleaseDate.text = book.releaseDate.toString()
+        textViewBookDetails.text = book.name
+        textViewBookReleaseDate.text = (book.releaseDate).toString()
         textViewBookAuthor.text = book.author.name
 
-        imageViewDetail.setImageResource(resources.getIdentifier(book.image,"drawable",packageName))
+        imageViewDetail.setImageResource(
+            resources.getIdentifier(book.image,"drawable",packageName))
 
     }
 }
