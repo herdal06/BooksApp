@@ -1,4 +1,4 @@
-package com.herdal.booksapp.service
+package com.herdal.booksapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

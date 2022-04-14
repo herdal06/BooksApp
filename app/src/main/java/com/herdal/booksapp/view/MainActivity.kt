@@ -1,10 +1,11 @@
-package com.herdal.booksapp
+package com.herdal.booksapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Category
-import com.herdal.booksapp.service.CategoryAdapter
+import com.herdal.booksapp.adapter.CategoryAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
