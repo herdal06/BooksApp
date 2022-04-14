@@ -23,6 +23,19 @@ class MainActivity : AppCompatActivity() {
         recyclerViewCategories.layoutManager = LinearLayoutManager(this)
 
         categoryList = ArrayList()
+        val c1 = Category(1,"Novel")
+        val c2 = Category(2,"Poem")
+        val c3 = Category(3,"Science Fiction")
+        val c4 = Category(4,"History")
+        val c5 = Category(5,"Horror")
+        val c6 = Category(5,"Fantastic Fiction")
+
+        categoryList.add(c1)
+        categoryList.add(c2)
+        categoryList.add(c3)
+        categoryList.add(c4)
+        categoryList.add(c5)
+        categoryList.add(c6)
 
     }
 }
