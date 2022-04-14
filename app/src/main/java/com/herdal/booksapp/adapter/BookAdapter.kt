@@ -1,6 +1,7 @@
 package com.herdal.booksapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Book
+import com.herdal.booksapp.view.BooksActivity
+import com.herdal.booksapp.view.DetailsActivity
 
 class BookAdapter(private val context: Context, private val bookList: List<Book>) : RecyclerView.Adapter<BookAdapter.CardViewHolder>() {
     inner class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,7 +37,10 @@ class BookAdapter(private val context: Context, private val bookList: List<Book>
         holder.textViewBookName.text = book.name
         holder.imageViewBook.setImageResource(context.resources.getIdentifier(book.image,"drawable",context.packageName))
         holder.card_view_book.setOnClickListener {
-
+            // intent
+            val intent = Intent(context, DetailsActivity::class.java)
+            intent.putExtra("book",book)
+            context.startActivity(intent)
         }
     }
 
