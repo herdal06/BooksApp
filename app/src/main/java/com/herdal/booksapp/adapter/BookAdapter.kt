@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Book
-import com.herdal.booksapp.view.BooksActivity
 import com.herdal.booksapp.view.DetailsActivity
 
 class BookAdapter(private val context: Context, private val bookList: List<Book>) : RecyclerView.Adapter<BookAdapter.CardViewHolder>() {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Book
 import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.books_card_view.*
 
 class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

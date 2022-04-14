@@ -2,7 +2,6 @@ package com.herdal.booksapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.herdal.booksapp.R
 import com.herdal.booksapp.adapter.BookAdapter
