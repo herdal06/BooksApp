@@ -8,12 +8,17 @@ import com.herdal.booksapp.adapter.BookAdapter
 import com.herdal.booksapp.model.Author
 import com.herdal.booksapp.model.Book
 import com.herdal.booksapp.model.Category
+import com.herdal.booksapp.service.BookDao
+import com.herdal.booksapp.service.DatabaseHelper
 import kotlinx.android.synthetic.main.activity_books.*
 
 class BooksActivity : AppCompatActivity() {
 
     private lateinit var bookList: ArrayList<Book>
     private lateinit var bookAdapter: BookAdapter
+
+    private lateinit var dbHelper: DatabaseHelper
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,18 +33,9 @@ class BooksActivity : AppCompatActivity() {
         recyclerViewBooks.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
 
 
-        bookList = ArrayList()
+        dbHelper = DatabaseHelper(this)
 
-        val c = Category(1,"Drama")
-        val a = Author(1,"Tolstoy")
-
-        val b1 = Book(1,"Anna Karenina",1860,"",c,a)
-        val b2 = Book(2,"LOTR",1956,"",c,a)
-        val b3 = Book(3,"Dune",1972,"",c,a)
-
-        bookList.add(b1)
-        bookList.add(b2)
-        bookList.add(b3)
+        bookList = BookDao().getAllBooksByCategoryId(dbHelper,category.id)
 
         bookAdapter = BookAdapter(this,bookList)
         recyclerViewBooks.adapter = bookAdapter
