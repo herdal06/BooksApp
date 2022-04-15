@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Category
 import com.herdal.booksapp.adapter.CategoryAdapter
+import com.herdal.booksapp.service.DatabaseCopyHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        copyDatabase()
 
         toolbarCategory.title = "Categories"
         setSupportActionBar(toolbarCategory)
@@ -41,5 +44,16 @@ class MainActivity : AppCompatActivity() {
         categoryAdapter = CategoryAdapter(this,categoryList)
 
         recyclerViewCategories.adapter = categoryAdapter
+    }
+
+    fun copyDatabase() {
+        val copyHelper = DatabaseCopyHelper(this)
+
+        try {
+            copyHelper.createDataBase()
+            copyHelper.openDataBase()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
