@@ -6,13 +6,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.herdal.booksapp.R
 import com.herdal.booksapp.model.Category
 import com.herdal.booksapp.adapter.CategoryAdapter
+import com.herdal.booksapp.service.CategoryDao
 import com.herdal.booksapp.service.DatabaseCopyHelper
+import com.herdal.booksapp.service.DatabaseHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var categoryList: ArrayList<Category>
     private lateinit var categoryAdapter: CategoryAdapter
+
+    private lateinit var dbHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +30,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewCategories.setHasFixedSize(true)
         recyclerViewCategories.layoutManager = LinearLayoutManager(this)
 
-        categoryList = ArrayList()
-        val c1 = Category(1,"Novel")
-        val c2 = Category(2,"Poem")
-        val c3 = Category(3,"Science Fiction")
-        val c4 = Category(4,"History")
-        val c5 = Category(5,"Horror")
-        val c6 = Category(5,"Fantastic Fiction")
+        dbHelper = DatabaseHelper(this)
 
-        categoryList.add(c1)
-        categoryList.add(c2)
-        categoryList.add(c3)
-        categoryList.add(c4)
-        categoryList.add(c5)
-        categoryList.add(c6)
+        categoryList = CategoryDao().getAllCategories(dbHelper)
 
         categoryAdapter = CategoryAdapter(this,categoryList)
 
